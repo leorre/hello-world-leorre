@@ -1,3 +1,3 @@
 # hello-world-leorre
 
-My name is Leorre Newman (ליאור נוימן)
+My name is Leorre (Lior) Newman
