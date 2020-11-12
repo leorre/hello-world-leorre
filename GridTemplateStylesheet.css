@@ -1,0 +1,20 @@
+.grid-container{
+    display:grid;
+    grid-template-areas: 
+    'header header header header'
+    'main main main nav'
+    'main main main nav'
+    'main main main nav'
+    'footer footer footer footer';
+    grid-gap: 50px;
+    padding: 100px;
+}
+
+.header {grid-area: header; background-color: tan}
+.main {grid-area: main; background-color:tan}
+.nav {grid-area: nav; background-color: tan}
+.footer {grid-area: footer; background-color: tan}
+
+body{
+    background-color: peachpuff;
+}
