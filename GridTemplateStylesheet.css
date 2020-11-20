@@ -11,10 +11,10 @@
     padding: 10px;
 }
 
-.header {grid-area: header; background-color: tan}
-.main {grid-area: main; background-color:tan}
-.nav {grid-area: nav; background-color: tan}
-.footer {grid-area: footer; background-color: tan}
+.header {grid-area: header; background-color: whitesmoke}
+.main {grid-area: main; background-color:whitesmoke}
+.nav {grid-area: nav; background-color: whitesmoke}
+.footer {grid-area: footer; background-color: whitesmoke}
 
 body{
     background-color: peachpuff;

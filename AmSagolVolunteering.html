@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Am Sagol</title>
+        <style>
+            .center {
+              
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+              font-family:tahoma;
+              height: 510px;
+              border: 3px solid rgba(128, 0, 128, 0.466); 
+            }
+            </style>
+
+        <script>
+            function getPhone (){
+                document.getElementById("P3").innerHTML="072-2791119";
+            }
+        </script>
+    </head>
+    <body>
+        <div class="center">
+        <h1>Volunteering in Am Sagol (Purple Nation)</h1>
+        <br>
+        <p id="P1"></p>
+        <script>
+            document.getElementById('P1').innerHTML="- Creating Excellence in Israel Society -";
+            
+        </script>
+
+        <p id='P2'></p>
+        <script>
+            function p2Func(month,year){
+                if (month == 2){
+                    return 'February '+year;
+                }
+                return year;
+            }
+            document.getElementById('P2').innerHTML='The organization was founded in '+p2Func(2,2016);
+        </script>
+        <br>
+
+        
+        <img id ="amSagolImages" src='AmSagolLogo.png' alt="amSagolImages" width="150px">
+        <script>
+            function nextPhoto(){
+                document.getElementById('amSagolImages').src="LeorreAmSagolPic.jpg";
+            }
+            function prevPhoto(){
+                document.getElementById('amSagolImages').src="AmSagolLogo.png";
+            }
+        </script> <br> 
+        <button onclick="prevPhoto()">Previous</button>
+        <button onclick="nextPhoto()">Next</button>
+        <br> <br> <br>
+        <button type="button" onclick="getPhone()" >How can I contact you?</button>
+        <p id='P3'>-</p>
+    </div>
+        
+    </body>
+</html>
