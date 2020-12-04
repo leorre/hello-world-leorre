@@ -1,0 +1,85 @@
+:root{
+    --textColor:rgba(77, 77, 77, 1.0);
+    --background:rgba(235, 229, 229, 1.0);
+    --mainBack: rgba(77, 81, 87, 1.0);
+}
+
+html{
+    height: 100vh;
+}
+
+body{
+    background-color:var(--mainBack);
+}
+
+.grid-container{
+    display: grid;
+    justify-items: center;
+    color: var(--textColor);
+    font-family: regFont;
+    text-align: center;
+    grid-template-areas: 
+    'header'
+    'main'
+    'footer';
+    grid-gap: 0vh;
+    margin: 0vh;
+}
+
+.header{
+    grid-area: header;
+    width: 100%;
+    border: none;
+    text-align: center;
+    display: inline-block;
+    font-family: regFont;
+    font-size: 5vh;
+}
+
+.main{
+    grid-area: main;
+    color: rgba(242, 233, 213, 1.0);
+    background-color: var(--mainBack);
+    line-height: 1vh;
+    padding: 0vh;
+}
+
+.footer{
+    grid-area: footer;
+    position: relative;
+    margin-top: 0vh;    
+    width: 100%;
+}
+
+.input{
+    font-family: regFont;
+    font-size: 2vh;
+    color: rgba(77, 81, 87, 1);
+    width: 50%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 0.5vh;
+    box-sizing: border-box;
+    resize: vertical;
+    margin-bottom: 0.5vh;
+}
+
+.sumbitInput{
+    font-family: regFont;
+    font-size: 2vh;
+    color: rgba(77, 81, 87, 1);
+    border-radius: 0.5vh;
+    color: black;
+}
+
+a:-webkit-any-link {
+  text-decoration: none;
+}
+
+
+
+@font-face{
+    font-family: regFont;
+    src: url(NotoSans-Regular.ttf);
+}
+
