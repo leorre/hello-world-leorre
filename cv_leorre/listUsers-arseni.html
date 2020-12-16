@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Users List</title>
+        <script>
+            fetch('https://reqres.in/api/users?page=2').then(Response=>Response.json()).then(responseJSON => createUsersList (responseJSON.data)).catch(err => console.log(err));
+        
+            function createUsersList (users){
+                console.log(users);
+                const curr_main = document.querySelector("main");
+                for(let user of users){
+                    const section = document.createElement("section");
+                    section.innerHTML = `
+                    <div>
+                        <img src=${user.avatar} alt="A picture of the user"> 
+                        <div>${user.first_name} ${user.last_name}</div>
+                        ID number: ${user.id}
+                    </div><br>`;
+                    curr_main.appendChild(section);
+                }
+            }
+        </script>
+    </head>
+    <main style="text-align: center; font-family: tahoma;">
+        <h1>Users List:</h1>
+    </main>
+</html>
