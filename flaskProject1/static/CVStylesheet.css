@@ -1,0 +1,93 @@
+:root{
+    --textColor:rgba(77, 77, 77, 1.0);
+    --mainBackground:rgba(235, 229, 229, 1.0);
+    --button1Color:rgba(214,47,69);
+    --button2Color:rgba(142,176,211);
+    --button3Color:rgba(211,194,169);
+}
+
+html{
+    height: 100vh;
+}
+
+body{
+    background-color:var(--mainBackground);
+    width: 90%;
+    height: 100%;
+    margin: auto;
+}
+
+.grid-container{
+    display: grid;
+    justify-items: center;
+    font-family: regFont;
+    color: var(--textColor);
+    grid-template-areas: 
+    'header header header header header'
+    'pic right right right right'
+    'footer footer footer footer footer';
+    grid-gap: 3vh;
+    margin: 1vh;
+}
+
+.header{
+    grid-area: header;
+    width: 100%;
+    min-height: 15vh;
+    line-height: 1vh;
+    font-weight: bold;
+}
+
+.pic{
+    grid-area: pic;
+    min-height: 60vh;
+    padding: 3vh;
+}
+
+.right{
+    grid-area: right;
+    min-width: 100vh;
+    min-height: 60vh;
+    line-height: 4vh;
+}
+
+.footer{
+    grid-area: footer;
+    position: relative;  
+    height: 10vh;   
+    width: 100%;
+}
+
+.button {
+    border: none;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-family: regFont;
+    font-size: 3vh;
+    margin: 3vh 0.5vh;
+    height: 16vh;
+    width: 16vh;
+    border-radius: 100%;
+    outline:none;
+  }
+
+.AmSagolBut{
+    background-color: rgb(232,202,219,1); 
+    border-width: 0.001vh;
+    outline:none;
+ }
+
+.button1{background-color: var(--button1Color)}
+.button2{background-color: var(--button2Color)}
+.button3{background-color: var(--button3Color)}
+
+a:-webkit-any-link {
+    text-decoration: none;
+}
+
+@font-face{
+    font-family: regFont;
+    src: url(NotoSans-Regular.ttf);
+}
+

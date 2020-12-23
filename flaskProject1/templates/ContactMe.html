@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Contact Leorre Newman</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='ContactStylesheet.css') }}">
+        <script type = "text/javascript" src="{{ url_for('static', filename='CV_JS.js') }}"></script>
+
+    </head>
+    <body>
+        <form class="grid-container">
+            <a href="MainPage.html">
+                <div class="header" style="color: rgb(59,89,152); font-weight: bolder; font-size: 2vh; -webkit-text-stroke: 0.0000001vh white;">
+                    - Back to Main Page -<br>
+                </div><br><br>
+            </a>
+
+            <div class="main">
+                <h1 style="font-size: 15vh;">CONTACT ME</h1> <br>
+                <h2 style="font-size: 5vh"> I'll be glad to answer your questions!</h2> <br><br>
+                <p style="width: 400px">
+                    <div>
+                        <input class="input" type="text" id="fullName" name="fullname" placeholder="Full Name" onfocus="focusingContact(this,'yellow')" onblur="focusingContact(this,'white')">
+                        <input class="input" type="email" id="email" name="email" placeholder="Email address " onfocus="focusingContact(this,'yellow')" onblur="focusingContact(this,'white')">
+                        <input class="input" type="text" id="subject" name="subject" placeholder="Subject" onfocus="focusingContact(this,'yellow')" onblur="focusingContact(this,'white')"> <br>
+                        <textarea class ="input" name="message" id="message" placeholder="Your message" style="height: 10vh;" onfocus="focusingContact(this,'yellow')" onblur="focusingContact(this,'white')"></textarea><br><br>
+                        <input class="sumbitInput" type="submit" value="Submit" > 
+                        <br><br><br>
+                    </div>
+                </p>
+            </div>
+            <div class="footer">
+                <a href="http://www.facebook.com/Lior.new">
+                    <img src="{{ url_for('static', filename='facebookSymbol.png') }}" width="50vh" alt="image of facebook symbol">
+                </a>
+                <a href="https://www.linkedin.com/in/leorre-newman-a131a41aa/">
+                    <img src="{{ url_for('static', filename='linkedinSymbol.png') }}" width="50vh" alt="image of linkedin symbol">
+                </a>
+            </div>
+        </form>
+
+    </body>
+    
+</html>

@@ -1,0 +1,28 @@
+{% extends 'header.html' %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Hobbies</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='CVStylesheet.css') }}">
+
+    <header>
+        {% include 'header.html' %}
+    </header>
+</head>
+{% block block1 %}
+    <body>
+        {% if user %}
+            <p>Welcome to {{ user }}'s hobbies page!</p>
+        {% else %}
+            <p>Welcome to my hobbies page!</p>
+        {% endif %}
+        <ul>
+            <li>{{ hobbie1 | default('Read books',true) | upper }}</li>
+            <li>{{ hobby | default('Play computer games',true) | upper }}</li>
+            {% for hobby in hobbies %}
+                <li>{{ hobby | default('None',true) | upper }}</li>
+            {% endfor %}
+        </ul>
+    </body>
+{% endblock %}
+</html>

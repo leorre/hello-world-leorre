@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Leorre Newman - CV</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='CVStylesheet.css') }}">
+        <script type = "text/javascript" src="{{ url_for('static', filename='CV_JS.js') }}"></script>
+    </head>
+    <body>
+        <div class="grid-container">
+            <div class="header" style="font-size: 30px">
+                <p>Leorre Newman</p>
+                <p style="font-size: 20px;">MSc. Industrial Engineering and Management</p>
+            </div>
+            <div class="right">
+                <h1 style="font-size: 100px;">Hi,</h1>
+                <h2 style="font-size: 40px"> You're welcome to look:</h2>
+                <p style="width: 400px">
+                    <a href="{{ url_for('static', filename='CV.pdf') }}" download target="_blank">
+                        <button id="but1" class="button button1" 
+                            onmouseover="changeElementSize(id,'20vh')"
+                            onmouseout="changeElementSize(id,'16vh')"
+                            onclick="downloadFile('CV.pdf')">
+                            My Resume
+                        </button>
+                    </a>                    
+                    <a href="{{ url_for('amSagolPage') }}">
+                        <button id="but2" class="button button2" 
+                            onmouseover="changeElementSize(id,'20vh')"
+                            onmouseout="changeElementSize(id,'16vh')">
+                            Volunteer Work
+                        </button>
+                    </a>
+                    <a href="{{ url_for('contactPage') }}">
+                        <button id="but3" class="button button3" 
+                            onmouseover="changeElementSize(id,'20vh')"
+                            onmouseout="changeElementSize(id,'16vh')">
+                            Contact Me
+                        </button>
+                    </a>
+                    <div>
+                        Nice to meet you!<br>
+                        I'm an IEM student in BGU Univerisy, M.Sc. in Data Science.
+                    </div>
+                    <a href="{{ url_for('contactListPage') }}" onclick="fetchUsersList()">- Contact List -</a>
+                </p>
+                <main>
+
+                </main>
+            </div>
+            <div class="pic">
+                <img id="mainPic" src="{{ url_for('static', filename='LeorreSeaCircle.png') }}" alt="This is an image of Leorre Newman" , width="380vh"
+                     onmouseover=`mouseOverImg("mainPic","{{ url_for('static', filename='LeorreSea3Circle.png') }}")`
+                     onmouseout=`mouseOutImg("mainPic","{{ url_for('static', filename='LeorreSeaCircle.png') }}")`>
+            </div>
+            <div class="footer">  
+                <a href="http://www.facebook.com/Lior.new" target="_blank">
+                    <img src="{{ url_for('static', filename='facebookSymbol.png') }}" width="50vh" alt="image of facebook symbol" onclick="">
+                </a>
+                <a href="https://www.linkedin.com/in/leorre-newman-a131a41aa/" target="_blank">
+                    <img src="{{ url_for('static', filename='linkedinSymbol.png') }}" width="50vh" alt="image of linkedin symbol" onclick="">
+                </a>
+            </div>
+        </div>
+    </body>
+</html>
