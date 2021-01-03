@@ -12,7 +12,7 @@
               font-family:tahoma;
               min-height: 85vh;
               border: 3px solid rgba(128, 0, 128, 0.466);
-              border-width: 2vh; 
+              border-width: 2vh;
             }
             </style>
 
@@ -22,6 +22,12 @@
             }
         </script>
     </head>
+    <header style="font-size: 3vh">
+        {% if session.get('login') %}
+            Hello {{ session.get('username') }},
+        {% endif %}
+
+    </header>
     <body>
         <br>
         <div class="center">
@@ -62,13 +68,12 @@
                 function prevPhoto(){
                     document.getElementById('amSagolImages').src="{{ url_for('static', filename='AmSagolLogo.png') }}";
                 }
-            </script> <br> 
+            </script> <br>
             <button onclick="prevPhoto()">Previous</button>
             <button onclick="nextPhoto()">Next</button>
             <br> <br>
             <button class="AmSagolBut" type="button" onclick="getPhone()" >Interesting. May I have more info?</button>
             <p id='P3'></p>
         </div>
-        
     </body>
 </html>

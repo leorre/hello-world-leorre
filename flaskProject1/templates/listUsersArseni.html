@@ -22,6 +22,12 @@
         </script>
         <header style="text-align: center; font-family: tahoma; font-size: 60px">Users List:</header><hr>
     </head>
+    <header style="font-size: 3vh">
+        {% if session.get('login') %}
+            Hello {{ session.get('username') }},
+        {% endif %}
+
+    </header>
     <main style="text-align: center; font-family: tahoma; font-size: 16px">
 
     </main>

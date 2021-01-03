@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment 9</title>
+    <style>
+          form, h4{
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+              font-family:tahoma;
+              }
+    </style>
+</head>
+<body>
+
+    <a href="{{ url_for('mainPage') }}">
+        <h4>- Back to Main Page -</h4><br><br>
+    </a>
+
+    <form action="/assignment9" method="GET">
+        <h1>Search Form</h1>
+        <p>Please enter a name and we will try to find the user's email address</p>
+        <input name = "firstName">
+        <input type = "submit" value="Search">
+
+
+        {% if (foundName == 1) and (name != "") %}
+            {% for user in users %}
+                {% if user[0] == name %}
+                    <br><br><b> {{ user[0] }}'s email: {{ user[1] }}</b>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <br><br><b>No search. We will present all users:</b>
+            {% for user in users %}
+                <p style="line-height: 2vh"> {{ user[0] }}'s email: {{ user[1] }}</p>
+            {% endfor %}
+        {% endif %}
+
+    </form><hr>
+
+
+    <form action="/assignment9" method="POST">
+
+        {% if session.get('login')!=True %}
+            {#Not Logged In#}
+            <h1>Registration Form</h1>
+            <p>Please enter username and password</p>
+            <input name = "username">
+            <input name = "password">
+            <input type = "submit" value="Search">
+        {% else %}
+            <p>Nice to see you, {{ session.get('username') }}!</p>
+            <a href="{{ url_for('logoutPage') }}">
+                <button type="button">
+                Log Out
+                </button>
+            </a>
+        {% endif %}
+
+    </form>
+
+</body>
+</html>

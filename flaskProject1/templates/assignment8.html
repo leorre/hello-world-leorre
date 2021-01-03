@@ -9,6 +9,12 @@
         {% include 'header.html' %}
     </header>
 </head>
+<header style="font-size: 3vh">
+        {% if session.get('login') %}
+            Hello {{ session.get('username') }},
+        {% endif %}
+
+    </header>
 {% block block1 %}
     <body>
         {% if user %}

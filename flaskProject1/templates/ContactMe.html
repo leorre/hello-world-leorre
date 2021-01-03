@@ -6,9 +6,14 @@
         <script type = "text/javascript" src="{{ url_for('static', filename='CV_JS.js') }}"></script>
 
     </head>
+    <header style="color: white; font-size: 3vh">
+        {% if session.get('login') %}
+            Hello {{ session.get('username') }},
+        {% endif %}
+    </header>
     <body>
         <form class="grid-container">
-            <a href="MainPage.html">
+            <a href="{{ url_for('mainPage') }}">
                 <div class="header" style="color: rgb(59,89,152); font-weight: bolder; font-size: 2vh; -webkit-text-stroke: 0.0000001vh white;">
                     - Back to Main Page -<br>
                 </div><br><br>
@@ -23,7 +28,7 @@
                         <input class="input" type="email" id="email" name="email" placeholder="Email address " onfocus="focusingContact(this,'yellow')" onblur="focusingContact(this,'white')">
                         <input class="input" type="text" id="subject" name="subject" placeholder="Subject" onfocus="focusingContact(this,'yellow')" onblur="focusingContact(this,'white')"> <br>
                         <textarea class ="input" name="message" id="message" placeholder="Your message" style="height: 10vh;" onfocus="focusingContact(this,'yellow')" onblur="focusingContact(this,'white')"></textarea><br><br>
-                        <input class="sumbitInput" type="submit" value="Submit" > 
+                        <input class="sumbitInput" type="submit" value="Submit" >
                         <br><br><br>
                     </div>
                 </p>

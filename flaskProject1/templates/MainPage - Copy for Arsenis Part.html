@@ -5,6 +5,12 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='CVStylesheet.css') }}">
         <script type = "text/javascript" src="{{ url_for('static', filename='CV_JS.js') }}"></script>
     </head>
+    <header style="font-size: 2vh">
+        {% if session.get('login') %}
+            Hello {{ session.get('username') }},
+        {% endif %}
+
+    </header>
     <body>
         <div class="grid-container">
             <div class="header" style="font-size: 30px">
@@ -24,12 +30,13 @@
                         </button>
                     </a>                    
                     <a href="{{ url_for('amSagolPage') }}">
-                        <button id="but2" class="button button2" 
+                        <button id="but2" class="button button2"
                             onmouseover="changeElementSize(id,'20vh')"
                             onmouseout="changeElementSize(id,'16vh')">
                             Volunteer Work
                         </button>
                     </a>
+
                     <a href="{{ url_for('contactPage') }}">
                         <button id="but3" class="button button3" 
                             onmouseover="changeElementSize(id,'20vh')"
