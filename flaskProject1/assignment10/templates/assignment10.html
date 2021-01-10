@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment10</title>
+    <style>
+          form, h1,a,p{
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+              font-family:tahoma;
+              }
+    </style>
+</head>
+<body>
+   <a href="{{ url_for('mainPage') }}">
+       <h4>- Back to Main Page -</h4>
+   </a>
+
+   <form action="/insert_user" method="POST" onsubmit="alert('Inserted successfully!')">
+       <h1>Insertion Form</h1>
+       <p>Please enter a name and e-mail of a new user. We will insert the user to our database.</p>
+       <label for="userName">Name:</label>
+       <input name = "userName">
+       <label for="userEmail">Email:</label>
+       <input name = "userEmail">
+       <label for="userId">ID:</label>
+       <input name = "userId">
+       <br><br><input type = "submit" value="Insert">
+   </form><br><hr><br>
+
+   <form action="/update_user" method="POST" onsubmit="alert('Updated successfully!')">
+       <h1>Update Form</h1>
+       <p>Please enter an id of the user you would like to update:</p>
+       <label for="id">ID: </label>
+       <input name = "id">
+       <label for="name">New name: </label>
+       <input name = "name">
+       <label for="email">New email: </label>
+       <input name = "email">
+       <br><br><input type = "submit" value="Update">
+   </form><br><hr><br>
+
+
+   <form action="/delete_user" method="GET" onsubmit="alert('Deleted successfully!')">
+       <h1>Deletion Form</h1>
+       <p>Please enter an id of the user you would like to delete:</p>
+       <label for="Id">ID: </label>
+       <input name = "Id">
+       <br><br><input type = "submit" value="Delete">
+   </form><br><hr><br>
+
+
+    <h1 action="/users">List of Users</h1>
+    {% for user in users %}
+        <p>{{ user.name }}, {{ user.email }}, id: {{ user.id }}</p>
+    {% endfor %}
+
+</body>
+</html>
