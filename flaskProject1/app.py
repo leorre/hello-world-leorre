@@ -1,5 +1,6 @@
 from flask import Flask, redirect, url_for, render_template, request, session
 import mysql.connector
+from flask import jsonify
 
 app = Flask(__name__)
 app.secret_key = '123'
@@ -67,6 +68,62 @@ def logoutPage():
 # blueprint assignment 10
 from assignment10.assignment10 import assignment10
 app.register_blueprint(assignment10)
+
+
+# DB connection
+def interact_db(query, query_type: str):
+    return_value = False
+    connection = mysql.connector.connect(host='localhost', user='root', password='root', database='homework')
+    cursor = connection.cursor(named_tuple=True)
+    cursor.execute(query)
+
+    if query_type == 'commit':
+        connection.commit()
+        return_value = True
+
+    if query_type == 'fetch':
+        query_result = cursor.fetchall()
+        return_value = query_result
+
+    connection.close()
+    cursor.close()
+    return return_value
+
+
+@app.route('/assignment11/users')
+def get_users():
+    if request.method == 'GET':
+        query = "SELECT * FROM users"
+        query_result = interact_db(query=query, query_type='fetch')
+        if len(query_result) == 0:
+            return jsonify({
+                'success': 'False',
+                'data': []
+            })
+        else:
+            return jsonify({
+                'success': 'True',
+                'data': query_result
+            })
+
+@app.route('/assignment11/users/selected',defaults={'SOME_USER_ID':1})
+@app.route('/assignment11/users/selected/<string:SOME_USER_ID>')
+def get_user_data(SOME_USER_ID):
+    if request.method == 'GET':
+        query = "SELECT * FROM users WHERE id='%s';" %SOME_USER_ID
+        query_result = interact_db(query=query, query_type='fetch')
+        if len(query_result) == 0:
+            return jsonify({
+                'message': 'The user does not exists',
+            })
+        else:
+            return jsonify({
+                'data': query_result
+            })
+
+
+
+
 
 
 if __name__ == '__main__':
